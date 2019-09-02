@@ -38,9 +38,10 @@ class Utils:
         response = client.do_action_with_exception(request)
         jsonObj = json.loads(response.decode("UTF-8"))
         records = jsonObj["DomainRecords"]["Record"]
-        for each in records:
-            if each["RR"] == domain:
-                return each["RecordId"]
+        return records
+        # for each in records:
+        #     if each["RR"] == domain:
+        #         return each["RecordId"]
 
     #获取CommonRequest
     def getCommonRequest():
